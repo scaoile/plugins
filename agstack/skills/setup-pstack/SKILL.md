@@ -32,8 +32,9 @@ Check if `plugins/agstack/rules/AGENTS.md` or `.agents/rules/pstack-models.md` a
 - `Apply globally across all projects (~/.gemini/config/plugins/agstack/rules/AGENTS.md)` (Recommended when configuring global defaults)
 
 **(b) Ask for a budget preference.** Use the `ask_question` tool:
-- `Max Reasoning (pro for judgment & architecture, flash for implementation)` (Recommended)
-- `All Pro (pro for all delegates and workers)`
+- `Flash 3.8 Unified / Inherit (inherit parent session model for judgment & architecture, flash for workers)` (Recommended when running agy on gemini-3.8-flash-high)
+- `Max Reasoning (pro for judgment & architecture, flash for implementation)`
+- `All Inherit (inherit parent session model across all roles)`
 - `Fast / Efficient (flash for delegates, inherit for parent)`
 
 **(b) Role-to-Tier Mapping Table.** Present the configuration to the user:
