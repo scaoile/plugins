@@ -14,6 +14,77 @@ This guide explains how to install, configure, and verify the `agstack` plugin f
 
 ---
 
+## Retrieving `agstack` from GitHub
+
+You can retrieve the `agstack` plugin from GitHub using any of the following methods.
+
+### Method 1: Git Sparse-Checkout (Recommended)
+
+Use this method to download only the `agstack` directory without downloading the entire repository.
+
+**Windows (PowerShell):**
+```powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/scaoile/plugins.git temp-plugins
+cd temp-plugins
+git sparse-checkout set agstack
+Move-Item -Path "agstack" -Destination "..\plugins\agstack"
+cd ..
+Remove-Item -Path "temp-plugins" -Recurse -Force
+```
+
+**macOS / Linux (Bash):**
+```bash
+git clone --depth 1 --filter=blob:none --sparse https://github.com/scaoile/plugins.git temp-plugins
+cd temp-plugins
+git sparse-checkout set agstack
+mv agstack ../plugins/agstack
+cd ..
+rm -rf temp-plugins
+```
+
+### Method 2: Git Submodule (Project-Level Integration)
+
+Use this method to pin the repository as a tracked dependency inside an existing project.
+
+In the root of your target repository:
+```bash
+git submodule add https://github.com/scaoile/plugins.git plugins
+```
+
+### Method 3: Full Git Clone
+
+Use this method to clone the full repository.
+
+```bash
+git clone https://github.com/scaoile/plugins.git
+cd plugins/agstack
+```
+
+### Method 4: Direct Archive Download (No Git Required)
+
+Use this method to extract the files without using Git commands.
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri "https://github.com/scaoile/plugins/archive/refs/heads/main.zip" -OutFile "plugins.zip"
+Expand-Archive -Path "plugins.zip" -DestinationPath "temp-plugins"
+New-Item -ItemType Directory -Path "plugins" -Force
+Move-Item -Path "temp-plugins\plugins-main\agstack" -Destination "plugins\agstack"
+Remove-Item -Path "temp-plugins" -Recurse -Force
+Remove-Item -Path "plugins.zip"
+```
+
+**macOS / Linux (Bash):**
+```bash
+curl -L -o plugins.tar.gz https://github.com/scaoile/plugins/archive/refs/heads/main.tar.gz
+tar -xzf plugins.tar.gz
+mkdir -p plugins
+mv plugins-main/agstack plugins/agstack
+rm -rf plugins-main plugins.tar.gz
+```
+
+---
+
 ## Installation Options
 
 Choose either **Project-Level** (recommended for specific repos) or **Global** (available across all projects on your machine).
