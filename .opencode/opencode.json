@@ -1,0 +1,78 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "name": "plugins-openstack",
+  "skills": [
+    "openstack/skills"
+  ],
+  "instructions": [
+    "openstack/rules/AGENTS.md"
+  ],
+  "agent": {
+    "poteto-agent": {
+      "description": "Rigorous engineering subagent that builds verified, minimal-diff solutions",
+      "mode": "subagent",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "comment-sicko": {
+      "description": "Comment-elimination reviewer that strips unnecessary comments and flags MUST KILL targets",
+      "mode": "subagent",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    }
+  },
+  "command": {
+    "poteto-mode": {
+      "description": "Engage rigorous engineering workflow across 23 playbooks",
+      "template": "Read and execute openstack/skills/poteto-mode/SKILL.md for task: $ARGUMENTS"
+    },
+    "architect": {
+      "description": "Sketch types, signatures, and module structure before writing code",
+      "template": "Read and execute openstack/skills/architect/SKILL.md: $ARGUMENTS"
+    },
+    "arena": {
+      "description": "Spawn parallel candidate solutions, pick a base, and graft the strongest elements",
+      "template": "Read and execute openstack/skills/arena/SKILL.md: $ARGUMENTS"
+    },
+    "swarm": {
+      "description": "Fan out parallel workers, aggregate results, and return a consolidated report",
+      "template": "Read and execute openstack/skills/swarm/SKILL.md: $ARGUMENTS"
+    },
+    "interrogate": {
+      "description": "Run an adversarial multi-perspective review on code changes",
+      "template": "Read and execute openstack/skills/interrogate/SKILL.md: $ARGUMENTS"
+    },
+    "deslop": {
+      "description": "Remove AI-generated code slop, excessive defensive checks, and unearned abstractions",
+      "template": "Read and execute openstack/skills/deslop/SKILL.md: $ARGUMENTS"
+    },
+    "control-cli": {
+      "description": "Build or adapt a local harness to drive, inspect, and profile an interactive CLI or TUI",
+      "template": "Read and execute openstack/skills/control-cli/SKILL.md: $ARGUMENTS"
+    },
+    "control-ui": {
+      "description": "Build or adapt a local browser or CDP harness to drive and inspect a web or desktop UI",
+      "template": "Read and execute openstack/skills/control-ui/SKILL.md: $ARGUMENTS"
+    },
+    "babysit": {
+      "description": "Drive a pull request or stack of PRs to merge-ready",
+      "template": "Read and execute openstack/skills/babysit/SKILL.md: $ARGUMENTS"
+    },
+    "no-comments": {
+      "description": "Strip unnecessary comments and identify MUST KILL refactor targets using Comment Sicko",
+      "template": "Read and execute openstack/skills/no-comments/SKILL.md: $ARGUMENTS"
+    },
+    "setup-openstack": {
+      "description": "Configure model assignments and execution scope for openstack roles in OpenCode",
+      "template": "Read and execute openstack/skills/setup-openstack/SKILL.md: $ARGUMENTS"
+    },
+    "show-me-your-work": {
+      "description": "Maintain a reviewable TSV decision log for long-running tasks",
+      "template": "Read and execute openstack/skills/show-me-your-work/SKILL.md: $ARGUMENTS"
+    }
+  }
+}

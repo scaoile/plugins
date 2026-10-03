@@ -1,6 +1,11 @@
-# Setting Up `agstack` for Antigravity CLI (`agy`)
+# Setting Up Plugins
 
-The `agstack` plugin for Google Antigravity CLI is located in [`agstack/`](./agstack/).
+This repository provides agentic engineering plugins adapted from `pstack`:
 
-For complete installation, configuration, and verification instructions, see:
-👉 [**`agstack/SETUP.md`**](./agstack/SETUP.md)
+1. **`agstack` (for Google Antigravity CLI `agy`)**:
+   - Location: [`agstack/`](./agstack/)
+   - Guide: 👉 [**`agstack/SETUP.md`**](./agstack/SETUP.md)
+
+2. **`openstack` (for OpenCode `opencode`)**:
+   - Location: [`openstack/`](./openstack/)
+   - Guide: 👉 [**`openstack/SETUP.md`**](./openstack/SETUP.md)
