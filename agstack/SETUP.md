@@ -189,12 +189,11 @@ Once installed, configure your model preferences:
    /setup-pstack
    ```
 
-3. **Select your Reasoning Budget:**
-   - **Max Reasoning** (`pro` for judgment, architecture, synthesis, and reviews; `flash` for implementation delegates and parallel workers).
-   - **All Pro** (`pro` for all roles).
-   - **Fast / Efficient** (`flash` for delegates, `inherit` for parent matching).
+3. **Select Scope and Reasoning Budget:**
+   - **Scope**: Choose whether to apply settings globally across all projects (`~/.gemini/config/plugins/agstack/rules/AGENTS.md`) or only for the active workspace (`<project-root>/.agents/rules/pstack-models.md`). In Antigravity CLI, workspace-level rules automatically take precedence over global rules.
+   - **Budget**: Select **Max Reasoning** (`pro` for judgment, `flash` for implementation), **All Pro** (`pro` across all roles), or **Fast / Efficient** (`flash` for delegates, `inherit` for parent).
 
-4. This writes or updates `plugins/agstack/rules/AGENTS.md` (or `.agents/rules/pstack-models.md`), setting the model tier mappings:
+4. This writes or updates the corresponding rule file (`plugins/agstack/rules/AGENTS.md` for global defaults or `.agents/rules/pstack-models.md` for project overrides), setting the model tier mappings:
 
 | Role | Default Antigravity Model Tier |
 | :--- | :--- |

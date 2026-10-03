@@ -25,9 +25,13 @@ Check if `plugins/agstack/rules/AGENTS.md` or `.agents/rules/pstack-models.md` a
 - **Code delegates (feature, bug-fix, perf, hillclimb)**: `flash`
 - **Explorers & swarm workers**: `flash`
 
-### 3. Budget, Map, and Confirm
+### 3. Budget, Scope, and Confirm
 
-**(a) Ask for a budget preference.** Use the `ask_question` tool:
+**(a) Ask for scope preference.** Use the `ask_question` tool:
+- `Apply to this project only (.agents/rules/pstack-models.md)` (Recommended when working inside a specific repository)
+- `Apply globally across all projects (~/.gemini/config/plugins/agstack/rules/AGENTS.md)` (Recommended when configuring global defaults)
+
+**(b) Ask for a budget preference.** Use the `ask_question` tool:
 - `Max Reasoning (pro for judgment & architecture, flash for implementation)` (Recommended)
 - `All Pro (pro for all delegates and workers)`
 - `Fast / Efficient (flash for delegates, inherit for parent)`
@@ -54,7 +58,9 @@ Check if `plugins/agstack/rules/AGENTS.md` or `.agents/rules/pstack-models.md` a
 
 ### 4. Write the Configuration Rule
 
-Write the updated configuration into `plugins/agstack/rules/AGENTS.md` or `.agents/rules/pstack-models.md`.
+Write the updated configuration based on the chosen scope:
+- If **Project Scope**: Write to `<workspace-root>/.agents/rules/pstack-models.md`. Antigravity CLI gives workspace-level rules higher priority than global rules.
+- If **Global Scope**: Write to the global plugin rule file at `~/.gemini/config/plugins/agstack/rules/AGENTS.md` (or update `plugins/agstack/rules/AGENTS.md` in your global installation). This sets the default across all projects.
 
 Format:
 ```markdown
